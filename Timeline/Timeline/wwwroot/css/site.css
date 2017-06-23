@@ -32,7 +32,7 @@ dl.inline-flex {
   overflow: visible;
 }
 dl.inline-flex dt {
-  flex: 0 0 50%;
+  flex: 0 0 30%;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -41,7 +41,7 @@ dl.inline-flex dd {
   text-align: left;
   text-overflow: ellipsis;
   overflow: hidden;
-  flex: 0 0 50%
+  flex: 0 0 70%
 }
 
 
@@ -84,10 +84,27 @@ h2 {
   text-align: center;
 }
 
-#profile{
-    width: 20em;
-    height: 50em;
+.profile{
+    width: 18em;
     float: left;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.profile-pic{
+    background: #02416d;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    padding-top: 3px;
+    color: #FFF;
+}
+
+.profile-pic h2 {
+    color: #FFF;
+}
+
+.profile-pic img{
+    width: 98%;
 }
 
 .timeline {
