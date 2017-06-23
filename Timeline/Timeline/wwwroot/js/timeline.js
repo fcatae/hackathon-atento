@@ -56,5 +56,40 @@ var UserProfile = (function (_super) {
     };
     return UserProfile;
 }(React.Component));
+var Timeline = (function (_super) {
+    __extends(Timeline, _super);
+    function Timeline() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Timeline.prototype.render = function () {
+        return React.createElement("ul", { className: "timeline" },
+            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "1"),
+            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "2"),
+            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "3"),
+            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "4"),
+            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "5"),
+            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "6"),
+            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "7"),
+            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "8"));
+    };
+    return Timeline;
+}(React.Component));
+var TimelineEvent = (function (_super) {
+    __extends(TimelineEvent, _super);
+    function TimelineEvent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TimelineEvent.prototype.render = function () {
+        var evento = this.props.titulo;
+        return React.createElement("li", { className: "event", "data-date": "12:30 - 1:00pm" },
+            React.createElement("div", { className: "histories-infos" },
+                React.createElement("h1", { className: 'histories-title' },
+                    this.props.titulo,
+                    React.createElement("small", { className: "history-date" }, this.props.data)),
+                React.createElement("div", { className: "histories-parameters" }, this.props.children)));
+    };
+    return TimelineEvent;
+}(React.Component));
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 ReactDOM.render(React.createElement(UserProfile, null), document.getElementById('profile'));
+ReactDOM.render(React.createElement(Timeline, null), document.getElementById('timeline'));

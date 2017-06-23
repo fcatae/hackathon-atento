@@ -34,9 +34,45 @@ class UserProfile extends React.Component<{}, {}> {
     }
 }
 
+class Timeline extends React.Component<{}, {}> {
+    render() {
+        return <ul className="timeline">
+            <TimelineEvent titulo='CONTATO VIA TELEFONE' data='30/05/2016'>1</TimelineEvent>
+            <TimelineEvent titulo='CONTATO VIA TELEFONE' data='30/05/2016'>2</TimelineEvent>
+            <TimelineEvent titulo='CONTATO VIA TELEFONE' data='30/05/2016'>3</TimelineEvent>
+            <TimelineEvent titulo='CONTATO VIA TELEFONE' data='30/05/2016'>4</TimelineEvent>
+            <TimelineEvent titulo='CONTATO VIA TELEFONE' data='30/05/2016'>5</TimelineEvent>
+            <TimelineEvent titulo='CONTATO VIA TELEFONE' data='30/05/2016'>6</TimelineEvent>
+            <TimelineEvent titulo='CONTATO VIA TELEFONE' data='30/05/2016'>7</TimelineEvent>
+            <TimelineEvent titulo='CONTATO VIA TELEFONE' data='30/05/2016'>8</TimelineEvent>
+        </ul>;
+    }
+}
 
+class TimelineEvent extends React.Component<ITimelineEventProps, {}> {
+    render() {
+        var evento = this.props.titulo;
+
+        return <li className="event" data-date="12:30 - 1:00pm">
+                <div className="histories-infos">
+                    <h1 className='histories-title'>{this.props.titulo}<small className="history-date">{this.props.data}</small></h1>
+                    <div className="histories-parameters">
+                        {this.props.children}
+                    </div>
+                </div>
+            </li>;
+    }
+}
+
+interface ITimelineEventProps {
+    titulo;
+    data;
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
 
 ReactDOM.render(<UserProfile />, document.getElementById('profile'));
+
+
+ReactDOM.render(<Timeline />, document.getElementById('timeline'));
