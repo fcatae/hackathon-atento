@@ -24,6 +24,27 @@ span {
   color: #999;
 }
 
+dl.inline-flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 300px; /* set the container width*/
+  overflow: visible;
+}
+dl.inline-flex dt {
+  flex: 0 0 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+dl.inline-flex dd {
+  margin-left: auto;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 0 0 50%
+}
+
+
 a:hover {
   color: #777;
 }
@@ -63,7 +84,15 @@ h2 {
   text-align: center;
 }
 
+#profile{
+    width: 20em;
+    height: 50em;
+    float: left;
+}
+
 .timeline {
+    float: left;
+    width: 60em;
   border-left: 0.25em solid #02416d;
   border-top: 0.1em solid #999;
   border-right: 0.1em solid #999;
@@ -98,7 +127,7 @@ h2 {
 
 .timeline .event:before {
   left: -15em;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(153, 153, 153, 0.8);
   content: attr(data-date);
   text-align: right;
   font-weight: 100;
@@ -116,32 +145,38 @@ h2 {
   content: "";
 }
 
-.timeline .event .member-location,
-.timeline .event .member-parameters {
+.history-date{
+    font-size: 0.7em;
+    color: #999;
+    float: right;
+}
+
+.timeline .event .histories-location,
+.timeline .event .histories-parameters {
   display: none;
 }
 
-.timeline .event:last-of-type .member-location,
-.timeline .event:last-of-type .member-parameters {
+.timeline .event:last-of-type .histories-location,
+.timeline .event:last-of-type .histories-parameters {
   display: block;
 }
 
-.member-infos {
+.histories-infos {
   padding: 10px;
   text-align: left;
   position: relative;
 }
 
-.member-infos > h1 {
+.histories-infos > h1 {
   font-weight: bold;
   font-size: 1.4em;
 }
 
-.member-location a:before {
+.histories-location a:before {
   margin-right: 5px;
 }
 
-.member-location {
+.histories-location {
   text-indent: 2px;
 }
 
@@ -166,7 +201,7 @@ h2 {
   margin-bottom: -1px;
 }
 
-.member-socials {
+.histories-socials {
   display: inline-block;
   font-weight: bold;
   vertical-align: bottom;
@@ -174,7 +209,7 @@ h2 {
   float: right;
 }
 
-.member-socials li {
+.histories-socials li {
   display: inline-block;
 }
 
@@ -186,24 +221,24 @@ h2 {
   font-size: 0.9em;
 }
 
-.member-debt {
+.histories-debt {
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
-.member-debt li {
+.histories-debt li {
   display: inline-block;
   margin-left: 10px;
 }
 
-.member-shots-number {
+.histories-shots-number {
   padding-right: 6px;
   border-right: 1px solid rgba(0, 0, 0, 0.06);
   margin-right: 6px;
   margin-left: 6px;
 }
 
-.member-parameters table {
+.histories-parameters table {
     width:90%;
 }
