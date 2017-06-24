@@ -100,9 +100,23 @@ var Timeline = (function (_super) {
     Timeline.prototype.render = function () {
         var eventos = this.props.eventos;
         var listaEventos = eventos.map(function (e) { return React.createElement(TimelineEvent, { titulo: e.titulo, data: e.data }, e.texto); });
-        return React.createElement("ul", { className: "timeline" }, listaEventos);
+        return React.createElement("div", null,
+            React.createElement("h1", { className: "timeline-title" }, this.props.titulo),
+            React.createElement("ul", { className: "timeline" }, listaEventos));
     };
     return Timeline;
+}(React.Component));
+var UserHistory = (function (_super) {
+    __extends(UserHistory, _super);
+    function UserHistory() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    UserHistory.prototype.render = function () {
+        var eventos = this.props.history;
+        var listaTimelines = eventos.map(function (e) { return React.createElement(Timeline, { titulo: e.titulo, eventos: e.eventos }); });
+        return React.createElement("div", { className: "user-timelines" }, listaTimelines);
+    };
+    return UserHistory;
 }(React.Component));
 var TimelineEvent = (function (_super) {
     __extends(TimelineEvent, _super);
@@ -132,11 +146,11 @@ var AppTimeline = (function (_super) {
     }
     AppTimeline.prototype.render = function () {
         var usuario = this.props.data.usuario;
-        var eventos = this.props.data.eventos;
+        var history = this.props.data.history;
         return React.createElement("div", { id: 'content' },
             React.createElement("div", { className: "profile-timeline" },
                 React.createElement(UserProfile, __assign({}, usuario))),
-            React.createElement(Timeline, { eventos: eventos }));
+            React.createElement(UserHistory, { history: history }));
     };
     return AppTimeline;
 }(React.Component));
@@ -147,7 +161,6 @@ var AppIndex = (function (_super) {
     }
     AppIndex.prototype.render = function () {
         var usuario = this.props.data.usuario;
-        var eventos = this.props.data.eventos;
         return React.createElement("div", { id: 'content' },
             React.createElement(UserMiniProfile, __assign({}, usuario)),
             React.createElement(UserMiniProfile, __assign({}, usuario)),

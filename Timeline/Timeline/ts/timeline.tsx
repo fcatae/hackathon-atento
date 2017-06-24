@@ -70,11 +70,30 @@ class Timeline extends React.Component<ITimelineProps, {}> {
 
         var listaEventos = eventos.map(e => <TimelineEvent titulo={e.titulo} data={e.data}>{e.texto}</TimelineEvent>);
 
-        return <ul className="timeline">
-            {listaEventos}
-        </ul>;
+        return <div>
+            <h1 className="timeline-title">{this.props.titulo}</h1>
+            <ul className="timeline">
+                {listaEventos}
+            </ul>
+        </div>;
     }
 }
+
+class UserHistory extends React.Component<IUserHistoryProps, {}> {
+    render() {
+
+        var eventos = this.props.history;
+
+        var listaTimelines = eventos.map(e => <Timeline titulo={e.titulo} eventos={e.eventos} ></Timeline>);
+
+        return <div className="user-timelines">
+            {listaTimelines}
+        </div>;
+
+    }
+}
+
+
 
 class TimelineEvent extends React.Component<ITimelineEventProps, {}> {
     render() {
@@ -100,13 +119,13 @@ class TimelineEvent extends React.Component<ITimelineEventProps, {}> {
 class AppTimeline extends React.Component<IAppProps, {}> {
     render() {
         var usuario = this.props.data.usuario;
-        var eventos = this.props.data.eventos;
+        var history = this.props.data.history;
 
         return <div id='content'>
             <div className="profile-timeline">
                 <UserProfile {...usuario} />
             </div>
-            <Timeline eventos={eventos} />
+            <UserHistory history={history} />
         </div>;
     }
 }
@@ -114,8 +133,7 @@ class AppTimeline extends React.Component<IAppProps, {}> {
 class AppIndex extends React.Component<IAppProps, {}> {
     render() {
         var usuario = this.props.data.usuario;
-        var eventos = this.props.data.eventos;
-
+        
         return <div id='content'>
             <UserMiniProfile {...usuario} />
             <UserMiniProfile {...usuario} />
@@ -144,13 +162,18 @@ interface ITimelineEventProps {
     texto?;
 }
 
+interface IUserHistoryProps {
+    history: ITimelineProps[];
+}
+
 interface ITimelineProps {
+    titulo;
     eventos: ITimelineEventProps[];
 }
 
 interface IData {
     usuario: IUserProfileProps;
-    eventos;
+    history: IUserHistoryProps;
 }
 
 interface IAppProps {
