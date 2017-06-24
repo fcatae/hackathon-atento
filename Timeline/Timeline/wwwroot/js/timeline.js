@@ -113,10 +113,15 @@ var TimelineEvent = (function (_super) {
         var evento = this.props.titulo;
         return React.createElement("li", { className: "event", "data-date": "12:30 - 1:00pm" },
             React.createElement("div", { className: "histories-infos" },
-                React.createElement("h1", { className: 'histories-title' },
+                React.createElement("h1", { className: 'histories-title', onClick: this.showInfo.bind(this) },
                     this.props.titulo,
                     React.createElement("small", { className: "history-date" }, this.props.data)),
                 React.createElement("div", { className: "histories-parameters" }, this.props.children)));
+    };
+    TimelineEvent.prototype.showInfo = function (ev) {
+        var target = ev.target;
+        $(target).next().slideToggle();
+        $(target).next().next().next().slideToggle();
     };
     return TimelineEvent;
 }(React.Component));

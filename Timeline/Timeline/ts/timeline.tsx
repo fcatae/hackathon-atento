@@ -1,3 +1,4 @@
+declare var $;
 class Hello extends React.Component<{}, {}> {
     render() {
         return <div>Hello World!</div>;
@@ -81,12 +82,18 @@ class TimelineEvent extends React.Component<ITimelineEventProps, {}> {
 
         return <li className="event" data-date="12:30 - 1:00pm">
             <div className="histories-infos">
-                <h1 className='histories-title'>{this.props.titulo}<small className="history-date">{this.props.data}</small></h1>
-                <div className="histories-parameters">
+                <h1 className='histories-title' onClick={this.showInfo.bind(this)}>{this.props.titulo}<small className="history-date">{this.props.data}</small></h1>
+                <div className="histories-parameters" >
                     {this.props.children}
                 </div>
             </div>
         </li>;
+    }
+
+    showInfo(ev) {
+        var target = ev.target;
+        $(target).next().slideToggle();
+        $(target).next().next().next().slideToggle();
     }
 }
 
