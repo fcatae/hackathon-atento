@@ -34,15 +34,12 @@ class UserProfile extends React.Component<IUserProfileProps, {}> {
     }
 }
 
-class Timeline extends React.Component<{}, {}> {
+class Timeline extends React.Component<ITimelineProps, {}> {
     render() {
 
-        var eventos = [ {titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '1'},
-                        {titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '2'},
-                        {titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '3'}
-         ];
+        var eventos = this.props.eventos;
 
-        var listaEventos = eventos.map( e => <TimelineEvent titulo='CONTATO VIA TELEFONE' data='31/05/2016'>1</TimelineEvent> );
+        var listaEventos = eventos.map( e => <TimelineEvent titulo={e.titulo} data={e.data}>{e.texto}</TimelineEvent> );
         
         return <ul className="timeline">            
             {listaEventos}
@@ -65,20 +62,14 @@ class TimelineEvent extends React.Component<ITimelineEventProps, {}> {
     }
 }
 
-class App extends React.Component<{}, {}> {
+class App extends React.Component<IAppProps, {}> {
     render() {
+        var usuario = this.props.data.usuario;
+        var eventos = this.props.data.eventos;
+
         return <div id='content'>
-            <UserProfile 
-                    imagem='https://image.shutterstock.com/z/stock-photo--face-blonde-happy-bride-before-the-wedding-portrait-of-a-young-girl-with-a-beautiful-smile-the-546759520.jpg'
-                    cpf='3333.333.555-45'
-                    renda='3583,00'
-                    idade='30'
-                    cidade='São Bernardo do Campo, SP'
-                    sexo='Masculino'
-                    imoveis='nada consta'
-                    carros='nada consta'
-                    tentativas='11' /> 
-            <Timeline />       
+            <UserProfile {...usuario} /> 
+            <Timeline eventos={eventos} />       
         </div>;
     }
 }
@@ -101,4 +92,20 @@ interface ITimelineEventProps {
     texto?;
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+interface ITimelineProps {
+    eventos: ITimelineEventProps[];
+}
+
+interface IData {
+    usuario: IUserProfileProps;
+    eventos;
+}
+
+interface IAppProps {
+    data: IData;
+}
+
+// external data from data.js
+declare var data;
+
+ReactDOM.render(<App data={data}/>, document.getElementById('app'));

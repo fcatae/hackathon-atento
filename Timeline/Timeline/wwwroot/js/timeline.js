@@ -8,6 +8,14 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var Hello = (function (_super) {
     __extends(Hello, _super);
     function Hello() {
@@ -62,11 +70,8 @@ var Timeline = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Timeline.prototype.render = function () {
-        var eventos = [{ titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '1' },
-            { titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '2' },
-            { titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '3' }
-        ];
-        var listaEventos = eventos.map(function (e) { return React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '31/05/2016' }, "1"); });
+        var eventos = this.props.eventos;
+        var listaEventos = eventos.map(function (e) { return React.createElement(TimelineEvent, { titulo: e.titulo, data: e.data }, e.texto); });
         return React.createElement("ul", { className: "timeline" }, listaEventos);
     };
     return Timeline;
@@ -93,10 +98,12 @@ var App = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     App.prototype.render = function () {
+        var usuario = this.props.data.usuario;
+        var eventos = this.props.data.eventos;
         return React.createElement("div", { id: 'content' },
-            React.createElement(UserProfile, { imagem: 'https://image.shutterstock.com/z/stock-photo--face-blonde-happy-bride-before-the-wedding-portrait-of-a-young-girl-with-a-beautiful-smile-the-546759520.jpg', cpf: '3333.333.555-45', renda: '3583,00', idade: '30', cidade: 'São Bernardo do Campo, SP', sexo: 'Masculino', imoveis: 'nada consta', carros: 'nada consta', tentativas: '11' }),
-            React.createElement(Timeline, null));
+            React.createElement(UserProfile, __assign({}, usuario)),
+            React.createElement(Timeline, { eventos: eventos }));
     };
     return App;
 }(React.Component));
-ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+ReactDOM.render(React.createElement(App, { data: data }), document.getElementById('app'));
