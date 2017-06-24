@@ -8,15 +8,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var App = (function (_super) {
-    __extends(App, _super);
-    function App() {
+var Hello = (function (_super) {
+    __extends(Hello, _super);
+    function Hello() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    App.prototype.render = function () {
+    Hello.prototype.render = function () {
         return React.createElement("div", null, "Hello World!");
     };
-    return App;
+    return Hello;
 }(React.Component));
 var UserProfile = (function (_super) {
     __extends(UserProfile, _super);
@@ -26,33 +26,33 @@ var UserProfile = (function (_super) {
     UserProfile.prototype.render = function () {
         return (React.createElement("div", { className: "profile" },
             React.createElement("div", { className: "profile-pic" },
-                React.createElement("img", { src: "https://image.shutterstock.com/z/stock-photo--face-blonde-happy-bride-before-the-wedding-portrait-of-a-young-girl-with-a-beautiful-smile-the-546759520.jpg", className: "profile-pic", alt: "" }),
+                React.createElement("img", { src: this.props.imagem, className: "profile-pic", alt: "" }),
                 React.createElement("h2", null, "Nome cliente")),
             React.createElement("dl", { id: "profile-info", className: "inline-flex" },
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-id-card-o" })),
-                React.createElement("dd", null, "3333.333.555-45"),
+                React.createElement("dd", null, this.props.cpf),
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-money" })),
-                React.createElement("dd", null, "3583,00"),
+                React.createElement("dd", null, this.props.renda),
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-birthday-cake" })),
-                React.createElement("dd", null, "30"),
+                React.createElement("dd", null, this.props.idade),
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-map-marker" })),
-                React.createElement("dd", null, "S\u00E3o Bernardo do Campo, S\u00E3o Paulo"),
+                React.createElement("dd", null, this.props.cidade),
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-venus-mars" })),
-                React.createElement("dd", null, "Masculino"),
+                React.createElement("dd", null, this.props.sexo),
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-home" })),
-                React.createElement("dd", null, "nada consta"),
+                React.createElement("dd", null, this.props.imoveis),
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-car" })),
-                React.createElement("dd", null, "nada consta"),
+                React.createElement("dd", null, this.props.carros),
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-refresh" })),
-                React.createElement("dd", null, "10"))));
+                React.createElement("dd", null, this.props.tentativas))));
     };
     return UserProfile;
 }(React.Component));
@@ -62,15 +62,12 @@ var Timeline = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Timeline.prototype.render = function () {
-        return React.createElement("ul", { className: "timeline" },
-            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "1"),
-            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "2"),
-            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "3"),
-            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "4"),
-            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "5"),
-            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "6"),
-            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "7"),
-            React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '30/05/2016' }, "8"));
+        var eventos = [{ titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '1' },
+            { titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '2' },
+            { titulo: 'CONTATO VIA TELEFONE', data: '0/05/2016', texto: '3' }
+        ];
+        var listaEventos = eventos.map(function (e) { return React.createElement(TimelineEvent, { titulo: 'CONTATO VIA TELEFONE', data: '31/05/2016' }, "1"); });
+        return React.createElement("ul", { className: "timeline" }, listaEventos);
     };
     return Timeline;
 }(React.Component));
@@ -90,6 +87,16 @@ var TimelineEvent = (function (_super) {
     };
     return TimelineEvent;
 }(React.Component));
+var App = (function (_super) {
+    __extends(App, _super);
+    function App() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    App.prototype.render = function () {
+        return React.createElement("div", { id: 'content' },
+            React.createElement(UserProfile, { imagem: 'https://image.shutterstock.com/z/stock-photo--face-blonde-happy-bride-before-the-wedding-portrait-of-a-young-girl-with-a-beautiful-smile-the-546759520.jpg', cpf: '3333.333.555-45', renda: '3583,00', idade: '30', cidade: 'São Bernardo do Campo, SP', sexo: 'Masculino', imoveis: 'nada consta', carros: 'nada consta', tentativas: '11' }),
+            React.createElement(Timeline, null));
+    };
+    return App;
+}(React.Component));
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
-ReactDOM.render(React.createElement(UserProfile, null), document.getElementById('profile'));
-ReactDOM.render(React.createElement(Timeline, null), document.getElementById('timeline'));
