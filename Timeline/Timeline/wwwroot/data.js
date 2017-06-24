@@ -7,7 +7,7 @@ var data = {
         renda: '2583,00',
         idade: '20',
         cidade: 'São Bernardo do Campo, Sao Paulo',
-        sexo: 'Masculino',
+        sexo: 'Feminino',
         imoveis: '(nada consta)',
         carros: '(nada consta)',
         tentativas: '12',
@@ -18,30 +18,30 @@ var data = {
     history:
     [
         {
-            titulo: 'Evento 001',
+            titulo: 'Fatura 10/02/2017',
             eventos: [
-                { titulo: 'CONTATO VIA SMS(1)', data: '10/05/2017', texto: '1' },
-                { titulo: 'CONTATO VIA Telefone(2)', data: '10/05/2017', texto: '2' },
-                { titulo: 'CONTATO VIA Email(3)', data: '10/05/2017', texto: '3' },
-                { titulo: 'CONTATO VIA SMS', data: '10/05/2017', texto: '4' }
+                { titulo: 'Contato Telefônico - Não Atende', data: '15/02/2017', texto: '1' },
+                { titulo: 'Contato Telefônico - Recado', data: '16/02/2017', texto: '2' },
+                { titulo: 'Contato SMS - Pede Retorno', data: '18/02/2017', texto: '3' },
+                { titulo: 'Contato Receptivo - Promessa Pagamento', data: '19/02/2017', texto: '4' },
+                { titulo: 'Contato SMS - Linha Digitável', data: '19/02/2017', texto: '4' },
+                { titulo: 'Pagou!', data: '20/02/2017', texto: '' }
             ]
         },
         {
-            titulo: 'Evento 002',
+            titulo: 'Fatura 10/03/2017',
             eventos: [
-                { titulo: 'CONTATO VIA Telegram(1)', data: '10/05/2017', texto: '1' },
-                { titulo: 'CONTATO VIA SMS(2)', data: '10/05/2017', texto: '2' },
-                { titulo: 'CONTATO VIA Whatsapp(3)', data: '10/05/2017', texto: '3' },
-                { titulo: 'CONTATO VIA chat', data: '10/05/2017', texto: '4' }
+                { titulo: 'Contato Telefônico - Recado', data: '16/03/2017', texto: '1' },
+                { titulo: 'Contato PA Digital - Recado', data: '18/03/2017', texto: '2' },
+                { titulo: 'Contato Telefônico - Não Pode falar agora', data: '19/03/2017', texto: '3' },
+                { titulo: 'Contato SMS - Linha Digitável', data: '20/03/2017', texto: '4' },
+                { titulo: 'Pagou!', data: '20/03/2017', texto: '' }
             ]
         },
         {
-            titulo: 'Evento 003',
+            titulo: 'Fatura 10/04/2017',
             eventos: [
-                { titulo: 'CONTATO VIA SMS(1)', data: '10/05/2017', texto: '1' },
-                { titulo: 'CONTATO VIA Twitter(2)', data: '10/05/2017', texto: '2' },
-                { titulo: 'CONTATO VIA Telegram(3)', data: '10/05/2017', texto: '3' },
-                { titulo: 'CONTATO VIA Carta', data: '10/05/2017', texto: '4' }
+                { titulo: 'Recomenda SMS - Linha Digitável', data: '15/04/2017', texto: 'Entre em contato às 08:00.' }
             ]
         }
     ],
