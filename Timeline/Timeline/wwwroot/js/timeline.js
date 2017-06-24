@@ -32,7 +32,9 @@ var UserProfile = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     UserProfile.prototype.render = function () {
-        return (React.createElement("div", { className: "profile" },
+        var classScroll = 'profile profile-scroll';
+        return (React.createElement("div", { className: classScroll },
+            React.createElement("span", { className: "profile-score" }, this.props.score),
             React.createElement("div", { className: "profile-pic" },
                 React.createElement("img", { src: this.props.imagem, className: "profile-pic", alt: "" }),
                 React.createElement("h2", null, "Nome cliente")),
@@ -63,6 +65,32 @@ var UserProfile = (function (_super) {
                 React.createElement("dd", null, this.props.tentativas))));
     };
     return UserProfile;
+}(React.Component));
+var UserMiniProfile = (function (_super) {
+    __extends(UserMiniProfile, _super);
+    function UserMiniProfile() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    UserMiniProfile.prototype.render = function () {
+        var classScore = 'profile score-card';
+        return (React.createElement("a", { href: "timeline.html" },
+            React.createElement("div", { className: classScore },
+                React.createElement("span", { className: "profile-score" }, this.props.score),
+                React.createElement("div", { className: "profile-pic" },
+                    React.createElement("img", { src: this.props.imagem, className: "profile-pic", alt: "" }),
+                    React.createElement("h2", null, "Nome cliente")),
+                React.createElement("dl", { id: "profile-info", className: "inline-flex" },
+                    React.createElement("dt", null,
+                        React.createElement("i", { className: "fa fa-id-card-o" })),
+                    React.createElement("dd", null, this.props.cpf),
+                    React.createElement("dt", null,
+                        React.createElement("i", { className: "fa fa-money" })),
+                    React.createElement("dd", null, this.props.renda),
+                    React.createElement("dt", null,
+                        React.createElement("i", { className: "fa fa-refresh" })),
+                    React.createElement("dd", null, this.props.tentativas)))));
+    };
+    return UserMiniProfile;
 }(React.Component));
 var Timeline = (function (_super) {
     __extends(Timeline, _super);
@@ -101,9 +129,26 @@ var App = (function (_super) {
         var usuario = this.props.data.usuario;
         var eventos = this.props.data.eventos;
         return React.createElement("div", { id: 'content' },
-            React.createElement(UserProfile, __assign({}, usuario)),
+            React.createElement("div", { className: "profile-timeline" },
+                React.createElement(UserProfile, __assign({}, usuario))),
             React.createElement(Timeline, { eventos: eventos }));
     };
     return App;
 }(React.Component));
-ReactDOM.render(React.createElement(App, { data: data }), document.getElementById('app'));
+var AppIndex = (function (_super) {
+    __extends(AppIndex, _super);
+    function AppIndex() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    AppIndex.prototype.render = function () {
+        var usuario = this.props.data.usuario;
+        var eventos = this.props.data.eventos;
+        return React.createElement("div", { id: 'content' },
+            React.createElement(UserMiniProfile, __assign({}, usuario)),
+            React.createElement(UserMiniProfile, __assign({}, usuario)),
+            React.createElement(UserMiniProfile, __assign({}, usuario)),
+            React.createElement(UserMiniProfile, __assign({}, usuario)));
+    };
+    return AppIndex;
+}(React.Component));
+ReactDOM.render(React.createElement(AppIndex, { data: data }), document.getElementById('app'));

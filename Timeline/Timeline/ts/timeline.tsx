@@ -6,7 +6,11 @@ class Hello extends React.Component<{}, {}> {
 
 class UserProfile extends React.Component<IUserProfileProps, {}> {
     render() {
-        return (<div className="profile">
+        var classScroll = 'profile profile-scroll';
+
+        return (
+            <div className={classScroll}>
+                <span className="profile-score">{this.props.score}</span>
                 <div className="profile-pic">
                     <img src={this.props.imagem} className="profile-pic" alt="">
                     </img>
@@ -34,14 +38,38 @@ class UserProfile extends React.Component<IUserProfileProps, {}> {
     }
 }
 
+class UserMiniProfile extends React.Component<IUserProfileProps, {}> {
+    render() {
+        var classScore = 'profile score-card';
+
+        return (
+            <a href="timeline.html"><div className={classScore}>
+                <span className="profile-score">{this.props.score}</span>
+                <div className="profile-pic">
+                    <img src={this.props.imagem} className="profile-pic" alt="">
+                    </img>
+                    <h2>Nome cliente</h2>
+                </div>
+                <dl id="profile-info" className="inline-flex">
+                    <dt><i className="fa fa-id-card-o"></i></dt>
+                    <dd>{this.props.cpf}</dd>
+                    <dt><i className="fa fa-money"></i></dt>
+                    <dd>{this.props.renda}</dd>
+                    <dt><i className="fa fa-refresh"></i></dt>
+                    <dd>{this.props.tentativas}</dd>
+                </dl>
+            </div></a>);
+    }
+}
+
 class Timeline extends React.Component<ITimelineProps, {}> {
     render() {
 
         var eventos = this.props.eventos;
 
-        var listaEventos = eventos.map( e => <TimelineEvent titulo={e.titulo} data={e.data}>{e.texto}</TimelineEvent> );
-        
-        return <ul className="timeline">            
+        var listaEventos = eventos.map(e => <TimelineEvent titulo={e.titulo} data={e.data}>{e.texto}</TimelineEvent>);
+
+        return <ul className="timeline">
             {listaEventos}
         </ul>;
     }
@@ -52,13 +80,13 @@ class TimelineEvent extends React.Component<ITimelineEventProps, {}> {
         var evento = this.props.titulo;
 
         return <li className="event" data-date="12:30 - 1:00pm">
-                <div className="histories-infos">
-                    <h1 className='histories-title'>{this.props.titulo}<small className="history-date">{this.props.data}</small></h1>
-                    <div className="histories-parameters">
-                        {this.props.children}
-                    </div>
+            <div className="histories-infos">
+                <h1 className='histories-title'>{this.props.titulo}<small className="history-date">{this.props.data}</small></h1>
+                <div className="histories-parameters">
+                    {this.props.children}
                 </div>
-            </li>;
+            </div>
+        </li>;
     }
 }
 
@@ -68,8 +96,24 @@ class App extends React.Component<IAppProps, {}> {
         var eventos = this.props.data.eventos;
 
         return <div id='content'>
-            <UserProfile {...usuario} /> 
-            <Timeline eventos={eventos} />       
+            <div className="profile-timeline">
+                <UserProfile {...usuario} />
+            </div>
+            <Timeline eventos={eventos} />
+        </div>;
+    }
+}
+
+class AppIndex extends React.Component<IAppProps, {}> {
+    render() {
+        var usuario = this.props.data.usuario;
+        var eventos = this.props.data.eventos;
+
+        return <div id='content'>
+            <UserMiniProfile {...usuario} />
+            <UserMiniProfile {...usuario} />
+            <UserMiniProfile {...usuario} />
+            <UserMiniProfile {...usuario} />
         </div>;
     }
 }
@@ -84,6 +128,7 @@ interface IUserProfileProps {
     imoveis;
     carros;
     tentativas;
+    score;
 }
 
 interface ITimelineEventProps {
@@ -108,4 +153,4 @@ interface IAppProps {
 // external data from data.js
 declare var data;
 
-ReactDOM.render(<App data={data}/>, document.getElementById('app'));
+ReactDOM.render(<AppIndex data={data} />, document.getElementById('app'));
