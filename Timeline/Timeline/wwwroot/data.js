@@ -98,7 +98,7 @@ var data = {
         {
             titulo: 'Fatura 10/04/2017 - R$ 1.000,00',
             eventos: [
-                { titulo: 'Recomendação - Não cobrar', data: '15/04/2017', hora:'', texto: '' }
+                { titulo: 'Envio de Boleto por Email', data: '15/04/2017', hora:'', texto: '' }
             ]
         }
     ],
