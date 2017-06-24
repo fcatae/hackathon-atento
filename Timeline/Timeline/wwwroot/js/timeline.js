@@ -37,7 +37,7 @@ var UserProfile = (function (_super) {
             React.createElement("span", { className: "profile-score" }, this.props.score),
             React.createElement("div", { className: "profile-pic" },
                 React.createElement("img", { src: this.props.imagem, className: "profile-pic", alt: "" }),
-                React.createElement("h2", null, "Nome cliente")),
+                React.createElement("h2", null, this.props.nome)),
             React.createElement("dl", { id: "profile-info", className: "inline-flex" },
                 React.createElement("dt", null,
                     React.createElement("i", { className: "fa fa-id-card-o" })),
@@ -78,7 +78,7 @@ var UserMiniProfile = (function (_super) {
                 React.createElement("span", { className: "profile-score" }, this.props.score),
                 React.createElement("div", { className: "profile-pic" },
                     React.createElement("img", { src: this.props.imagem, className: "profile-pic", alt: "" }),
-                    React.createElement("h2", null, "Nome cliente")),
+                    React.createElement("h2", null, this.props.nome)),
                 React.createElement("dl", { id: "profile-info", className: "inline-flex" },
                     React.createElement("dt", null,
                         React.createElement("i", { className: "fa fa-id-card-o" })),
@@ -112,8 +112,8 @@ var UserHistory = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     UserHistory.prototype.render = function () {
-        var eventos = this.props.history;
-        var listaTimelines = eventos.map(function (e) { return React.createElement(Timeline, { titulo: e.titulo, eventos: e.eventos }); });
+        var history = this.props.history;
+        var listaTimelines = history.map(function (e) { return React.createElement(Timeline, { titulo: e.titulo, eventos: e.eventos }); });
         return React.createElement("div", { className: "user-timelines" }, listaTimelines);
     };
     return UserHistory;
@@ -160,12 +160,8 @@ var AppIndex = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     AppIndex.prototype.render = function () {
-        var usuario = this.props.data.usuario;
-        return React.createElement("div", { id: 'content' },
-            React.createElement(UserMiniProfile, __assign({}, usuario)),
-            React.createElement(UserMiniProfile, __assign({}, usuario)),
-            React.createElement(UserMiniProfile, __assign({}, usuario)),
-            React.createElement(UserMiniProfile, __assign({}, usuario)));
+        var usuarios = this.props.data.profiles.map(function (u) { return React.createElement(UserMiniProfile, __assign({}, u)); });
+        return React.createElement("div", { id: 'content' }, usuarios);
     };
     return AppIndex;
 }(React.Component));

@@ -15,7 +15,7 @@ class UserProfile extends React.Component<IUserProfileProps, {}> {
                 <div className="profile-pic">
                     <img src={this.props.imagem} className="profile-pic" alt="">
                     </img>
-                    <h2>Nome cliente</h2>
+                    <h2>{this.props.nome}</h2>
                 </div>
                 <dl id="profile-info" className="inline-flex">
                     <dt><i className="fa fa-id-card-o"></i></dt>
@@ -49,7 +49,7 @@ class UserMiniProfile extends React.Component<IUserProfileProps, {}> {
                 <div className="profile-pic">
                     <img src={this.props.imagem} className="profile-pic" alt="">
                     </img>
-                    <h2>Nome cliente</h2>
+                    <h2>{this.props.nome}</h2>
                 </div>
                 <dl id="profile-info" className="inline-flex">
                     <dt><i className="fa fa-id-card-o"></i></dt>
@@ -79,12 +79,12 @@ class Timeline extends React.Component<ITimelineProps, {}> {
     }
 }
 
-class UserHistory extends React.Component<IUserHistoryProps, {}> {
+class UserHistory extends React.Component<{ history: ITimelineProps[] }, {}> {
     render() {
 
-        var eventos = this.props.history;
+        var history = this.props.history;
 
-        var listaTimelines = eventos.map(e => <Timeline titulo={e.titulo} eventos={e.eventos} ></Timeline>);
+        var listaTimelines = history.map(e => <Timeline titulo={e.titulo} eventos={e.eventos} ></Timeline>);
 
         return <div className="user-timelines">
             {listaTimelines}
@@ -132,13 +132,10 @@ class AppTimeline extends React.Component<IAppProps, {}> {
 
 class AppIndex extends React.Component<IAppProps, {}> {
     render() {
-        var usuario = this.props.data.usuario;
-        
+        var usuarios = this.props.data.profiles.map(u => <UserMiniProfile {...u}></UserMiniProfile>);
+
         return <div id='content'>
-            <UserMiniProfile {...usuario} />
-            <UserMiniProfile {...usuario} />
-            <UserMiniProfile {...usuario} />
-            <UserMiniProfile {...usuario} />
+            {usuarios}
         </div>;
     }
 }
@@ -154,6 +151,7 @@ interface IUserProfileProps {
     carros;
     tentativas;
     score;
+    nome;
 }
 
 interface ITimelineEventProps {
@@ -161,11 +159,6 @@ interface ITimelineEventProps {
     data;
     texto?;
 }
-
-interface IUserHistoryProps {
-    history: ITimelineProps[];
-}
-
 interface ITimelineProps {
     titulo;
     eventos: ITimelineEventProps[];
@@ -173,7 +166,8 @@ interface ITimelineProps {
 
 interface IData {
     usuario: IUserProfileProps;
-    history: IUserHistoryProps;
+    history: ITimelineProps[];
+    profiles: IUserProfileProps[];
 }
 
 interface IAppProps {
