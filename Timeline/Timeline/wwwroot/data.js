@@ -58,12 +58,12 @@ var data = {
         score: 950,
         nome: 'Isadora Rafaela Barros'
     }, {
-        imagem: 'images/5.png',
+        imagem: 'images/1.jpeg',
         cpf: '853.426.388-44',
         renda: '2087,93',
         idade: '45',
         cidade: 'Paraisópolis, Sao Paulo',
-        sexo: 'Masculino',
+        sexo: 'Feminino',
         imoveis: '(nada consta)',
         carros: '(nada consta)',
         tentativas: '5',
@@ -71,7 +71,7 @@ var data = {
         nome: 'Raul Danilo dos Santos'
 
     }, {
-        imagem: 'images/2.jpeg',
+        imagem: 'images/2.jpg',
         cpf: '435.923.685-91',
         renda: '1369,94',
         idade: '64',
@@ -110,7 +110,33 @@ var data = {
         nome: 'Julio de Paula'
 
     }, {
-        imagem: 'images/3.jpg',
+        imagem: 'images/5.png',
+        cpf: '331.102.092-84',
+        renda: '8562,86',
+        idade: '34',
+        cidade: 'Jardim das Praias, Sao Paulo',
+        sexo: 'Feminino',
+        imoveis: '(nada consta)',
+        carros: '(nada consta)',
+        tentativas: '0',
+        score: 675,
+        nome: 'Marcos Vinicius Pinto'
+
+    }, {
+        imagem: 'images/6.png',
+        cpf: '331.102.092-84',
+        renda: '8562,86',
+        idade: '34',
+        cidade: 'Jardim das Praias, Sao Paulo',
+        sexo: 'Feminino',
+        imoveis: '(nada consta)',
+        carros: '(nada consta)',
+        tentativas: '0',
+        score: 643,
+        nome: 'Marcos Vinicius Pinto'
+
+    }, {
+        imagem: 'images/7.png',
         cpf: '331.102.092-84',
         renda: '8562,86',
         idade: '34',
@@ -119,7 +145,72 @@ var data = {
         imoveis: '(nada consta)',
         carros: '(nada consta)',
         tentativas: '0',
-        score: 675,
+        score: 612,
+        nome: 'Marcos Vinicius Pinto'
+
+    }, {
+        imagem: 'images/8.jpg',
+        cpf: '331.102.092-84',
+        renda: '8562,86',
+        idade: '34',
+        cidade: 'Jardim das Praias, Sao Paulo',
+        sexo: 'Masculino',
+        imoveis: '(nada consta)',
+        carros: '(nada consta)',
+        tentativas: '0',
+        score: 597,
+        nome: 'Marcos Vinicius Pinto'
+
+    }, {
+        imagem: 'images/9.png',
+        cpf: '331.102.092-84',
+        renda: '8562,86',
+        idade: '34',
+        cidade: 'Jardim das Praias, Sao Paulo',
+        sexo: 'Masculino',
+        imoveis: '(nada consta)',
+        carros: '(nada consta)',
+        tentativas: '0',
+        score: 589,
+        nome: 'Marcos Vinicius Pinto'
+
+    }, {
+        imagem: 'images/10.png',
+        cpf: '331.102.092-84',
+        renda: '8562,86',
+        idade: '34',
+        cidade: 'Jardim das Praias, Sao Paulo',
+        sexo: 'Masculino',
+        imoveis: '(nada consta)',
+        carros: '(nada consta)',
+        tentativas: '0',
+        score: 578,
+        nome: 'Marcos Vinicius Pinto'
+
+    }, {
+        imagem: 'images/11.png',
+        cpf: '331.102.092-84',
+        renda: '8562,86',
+        idade: '34',
+        cidade: 'Jardim das Praias, Sao Paulo',
+        sexo: 'Masculino',
+        imoveis: '(nada consta)',
+        carros: '(nada consta)',
+        tentativas: '0',
+        score: 567,
+        nome: 'Marcos Vinicius Pinto'
+
+    }, {
+        imagem: 'images/12.png',
+        cpf: '331.102.092-84',
+        renda: '8562,86',
+        idade: '34',
+        cidade: 'Jardim das Praias, Sao Paulo',
+        sexo: 'Masculino',
+        imoveis: '(nada consta)',
+        carros: '(nada consta)',
+        tentativas: '0',
+        score: 556,
         nome: 'Marcos Vinicius Pinto'
 
     }]
