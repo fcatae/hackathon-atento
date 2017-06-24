@@ -42,24 +42,45 @@ class UserProfile extends React.Component<IUserProfileProps, {}> {
 class UserMiniProfile extends React.Component<IUserProfileProps, {}> {
     render() {
         var classScore = 'profile score-card';
-
-        return (
-            <a href="timeline.html"><div className={classScore}>
-                <span className="profile-score">{this.props.score}</span>
-                <div className="profile-pic">
-                    <img src={this.props.imagem} className="profile-pic" alt="">
-                    </img>
-                    <h2>{this.props.nome}</h2>
-                </div>
-                <dl id="profile-info" className="inline-flex">
-                    <dt><i className="fa fa-id-card-o"></i></dt>
-                    <dd>{this.props.cpf}</dd>
-                    <dt><i className="fa fa-money"></i></dt>
-                    <dd>{this.props.renda}</dd>
-                    <dt><i className="fa fa-refresh"></i></dt>
-                    <dd>{this.props.tentativas}</dd>
-                </dl>
-            </div></a>);
+        if (this.props.imagem === "images/2.jpg") {
+            return (
+                <a href="timeline2.html"><div className={classScore}>
+                    <span className="profile-score">{this.props.score}</span>
+                    <div className="profile-pic">
+                        <img src={this.props.imagem} className="profile-pic" alt="">
+                        </img>
+                        <h2>{this.props.nome}</h2>
+                    </div>
+                    <dl id="profile-info" className="inline-flex">
+                        <dt><i className="fa fa-id-card-o"></i></dt>
+                        <dd>{this.props.cpf}</dd>
+                        <dt><i className="fa fa-money"></i></dt>
+                        <dd>{this.props.renda}</dd>
+                        <dt><i className="fa fa-refresh"></i></dt>
+                        <dd>{this.props.tentativas}</dd>
+                    </dl>
+                </div></a>);
+        }
+        else {
+            return (
+                <a href="timeline.html"><div className={classScore}>
+                    <span className="profile-score">{this.props.score}</span>
+                    <div className="profile-pic">
+                        <img src={this.props.imagem} className="profile-pic" alt="">
+                        </img>
+                        <h2>{this.props.nome}</h2>
+                    </div>
+                    <dl id="profile-info" className="inline-flex">
+                        <dt><i className="fa fa-id-card-o"></i></dt>
+                        <dd>{this.props.cpf}</dd>
+                        <dt><i className="fa fa-money"></i></dt>
+                        <dd>{this.props.renda}</dd>
+                        <dt><i className="fa fa-refresh"></i></dt>
+                        <dd>{this.props.tentativas}</dd>
+                    </dl>
+                </div></a>);
+        }
+        
     }
 }
 
@@ -130,6 +151,20 @@ class AppTimeline extends React.Component<IAppProps, {}> {
     }
 }
 
+class AppTimeline2 extends React.Component<IAppProps, {}> {
+    render() {
+        var usuario = this.props.data.usuario2;
+        var history = this.props.data.history2;
+
+        return <div id='content'>
+            <div className="profile-timeline">
+                <UserProfile {...usuario} />
+            </div>
+            <UserHistory history={history} />
+        </div>;
+    }
+}
+
 class AppIndex extends React.Component<IAppProps, {}> {
     render() {
         var usuarios = this.props.data.profiles.map(u => <UserMiniProfile {...u}></UserMiniProfile>);
@@ -167,7 +202,9 @@ interface ITimelineProps {
 
 interface IData {
     usuario: IUserProfileProps;
+    usuario2: IUserProfileProps;
     history: ITimelineProps[];
+    history2: ITimelineProps[];
     profiles: IUserProfileProps[];
 }
 
