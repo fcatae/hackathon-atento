@@ -177,7 +177,7 @@ var data = {
         carros: '(nada consta)',
         tentativas: '0',
         score: 675,
-        nome: 'Rebeca Lima Pereira'
+        nome: 'Rebeca Pereira'
 
     }, {
         imagem: 'images/6.png',
