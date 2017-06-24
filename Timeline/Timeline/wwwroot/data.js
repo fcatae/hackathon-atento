@@ -10,7 +10,8 @@ var data = {
         sexo: 'Masculino',
         imoveis: '(nada consta)',
         carros: '(nada consta)',
-        tentativas: '12'
+        tentativas: '12',
+        score: 350
     },
 
     history: 
@@ -45,3 +46,39 @@ var data = {
     ]
 
 }
+
+
+var profiles = [{
+    imagem: 'https://image.shutterstock.com/z/stock-photo--face-blonde-happy-bride-before-the-wedding-portrait-of-a-young-girl-with-a-beautiful-smile-the-546759520.jpg',
+    cpf: '433.333.555-45',
+    renda: '2583,00',
+    idade: '20',
+    cidade: 'São Bernardo do Campo, Sao Paulo',
+    sexo: 'Masculino',
+    imoveis: '(nada consta)',
+    carros: '(nada consta)',
+    tentativas: '12',
+    score: 350
+}, {
+    imagem: 'https://image.shutterstock.com/z/stock-photo--face-blonde-happy-bride-before-the-wedding-portrait-of-a-young-girl-with-a-beautiful-smile-the-546759520.jpg',
+    cpf: '433.333.555-45',
+    renda: '2583,00',
+    idade: '20',
+    cidade: 'São Bernardo do Campo, Sao Paulo',
+    sexo: 'Masculino',
+    imoveis: '(nada consta)',
+    carros: '(nada consta)',
+    tentativas: '12',
+    score: 350
+}, {
+    imagem: 'https://image.shutterstock.com/z/stock-photo--face-blonde-happy-bride-before-the-wedding-portrait-of-a-young-girl-with-a-beautiful-smile-the-546759520.jpg',
+    cpf: '433.333.555-45',
+    renda: '2583,00',
+    idade: '20',
+    cidade: 'São Bernardo do Campo, Sao Paulo',
+    sexo: 'Masculino',
+    imoveis: '(nada consta)',
+    carros: '(nada consta)',
+    tentativas: '12',
+    score: 350
+}];
