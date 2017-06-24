@@ -120,12 +120,12 @@ var TimelineEvent = (function (_super) {
     };
     return TimelineEvent;
 }(React.Component));
-var App = (function (_super) {
-    __extends(App, _super);
-    function App() {
+var AppTimeline = (function (_super) {
+    __extends(AppTimeline, _super);
+    function AppTimeline() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    App.prototype.render = function () {
+    AppTimeline.prototype.render = function () {
         var usuario = this.props.data.usuario;
         var eventos = this.props.data.eventos;
         return React.createElement("div", { id: 'content' },
@@ -133,7 +133,7 @@ var App = (function (_super) {
                 React.createElement(UserProfile, __assign({}, usuario))),
             React.createElement(Timeline, { eventos: eventos }));
     };
-    return App;
+    return AppTimeline;
 }(React.Component));
 var AppIndex = (function (_super) {
     __extends(AppIndex, _super);
@@ -151,4 +151,3 @@ var AppIndex = (function (_super) {
     };
     return AppIndex;
 }(React.Component));
-ReactDOM.render(React.createElement(AppIndex, { data: data }), document.getElementById('app'));

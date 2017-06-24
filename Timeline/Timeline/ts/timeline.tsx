@@ -90,7 +90,7 @@ class TimelineEvent extends React.Component<ITimelineEventProps, {}> {
     }
 }
 
-class App extends React.Component<IAppProps, {}> {
+class AppTimeline extends React.Component<IAppProps, {}> {
     render() {
         var usuario = this.props.data.usuario;
         var eventos = this.props.data.eventos;
@@ -149,8 +149,3 @@ interface IData {
 interface IAppProps {
     data: IData;
 }
-
-// external data from data.js
-declare var data;
-
-ReactDOM.render(<AppIndex data={data} />, document.getElementById('app'));
