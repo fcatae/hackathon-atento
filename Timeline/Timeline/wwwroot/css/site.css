@@ -49,9 +49,17 @@ a:hover {
   color: #777;
 }
 
+header{
+ height: 5em;
+}
+
 #logo {
     width: 450px;
+    position: fixed;
+    top:3em;
 }
+
+#logo h1 { border: 0;}
 
 #logo img {
     width: 150px;
@@ -61,34 +69,44 @@ a:hover {
 }
 
 h1 {
-  font-family: 'Raleway', sans-serif;
-  letter-spacing: 1.5px;
-  color: #ff751a;
-  font-weight: 100;
-  font-size: 2.4em;
-  margin: 0;
-  border-bottom: 1px solid #777;
-  padding-bottom: 0.2em;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1.5px;
+    color: #ff751a;
+    font-weight: 100;
+    font-size: 2.4em;
+    margin: 0;
+    border-bottom: 1px solid #777;
+    padding-bottom: 0.2em;
 }
 
 h2 {
-  font-family: 'Raleway', sans-serif;
-  letter-spacing: 1.5px;
-  color: #999;
-  font-weight: 100;
-  font-size: 1.0em;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1.5px;
+    color: #999;
+    font-weight: 100;
+    font-size: 1.0em;
 }
 
 #content {
-  margin-top: 50px;
-  text-align: center;
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
 }
 
 .profile{
     width: 18em;
-    float: left;
     border-radius: 10px;
     border: 1px solid #000;
+}
+
+.profile-timeline{
+    flex: 0 0 20%
+}
+
+.profile-scroll{
+    position: fixed;
 }
 
 .profile-pic{
@@ -107,24 +125,35 @@ h2 {
     width: 98%;
 }
 
+.user-timelines{
+    flex: 0 0 80%;
+    overflow: visible;
+}
+
+.user-timelines .timeline-title{
+    border: 0;
+    text-align: left;
+    margin-left: 1.5em;
+}
+
 .timeline {
     float: left;
     width: 60em;
-  border-left: 0.25em solid #02416d;
-  border-top: 0.1em solid #999;
-  border-right: 0.1em solid #999;
-  border-bottom: 0.1em solid #999;
-  background: rgba(255, 255, 255, 0.1);
-  margin: 2em auto;
-  line-height: 1.4em;
-  padding: 1em;
-  padding-left: 3em;
-  list-style: none;
-  text-align: left;
-  margin-left: 10em;
-  margin-right: 3em;
-  border-radius: 0.5em;
-  min-width: 22em;
+    border-left: 0.25em solid #02416d;
+    border-top: 0.1em solid #999;
+    border-right: 0.1em solid #999;
+    border-bottom: 0.1em solid #999;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 2em auto;
+    line-height: 1.4em;
+    padding: 1em;
+    padding-left: 3em;
+    list-style: none;
+    text-align: left;
+    margin-left: 10em;
+    margin-right: 3em;
+    border-radius: 0.5em;
+    min-width: 22em;
 }
 
 .event {
