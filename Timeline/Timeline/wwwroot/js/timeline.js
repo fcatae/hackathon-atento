@@ -99,7 +99,7 @@ var Timeline = (function (_super) {
     }
     Timeline.prototype.render = function () {
         var eventos = this.props.eventos;
-        var listaEventos = eventos.map(function (e) { return React.createElement(TimelineEvent, { titulo: e.titulo, data: e.data }, e.texto); });
+        var listaEventos = eventos.map(function (e) { return React.createElement(TimelineEvent, { titulo: e.titulo, data: e.data, hora: e.hora }, e.texto); });
         return React.createElement("div", null,
             React.createElement("h1", { className: "timeline-title" }, this.props.titulo),
             React.createElement("ul", { className: "timeline" }, listaEventos));
@@ -125,7 +125,7 @@ var TimelineEvent = (function (_super) {
     }
     TimelineEvent.prototype.render = function () {
         var evento = this.props.titulo;
-        return React.createElement("li", { className: "event", "data-date": "12:30 - 1:00pm" },
+        return React.createElement("li", { className: "event", "data-date": this.props.hora },
             React.createElement("div", { className: "histories-infos" },
                 React.createElement("h1", { className: 'histories-title', onClick: this.showInfo.bind(this) },
                     this.props.titulo,

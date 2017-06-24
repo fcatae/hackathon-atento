@@ -68,7 +68,7 @@ class Timeline extends React.Component<ITimelineProps, {}> {
 
         var eventos = this.props.eventos;
 
-        var listaEventos = eventos.map(e => <TimelineEvent titulo={e.titulo} data={e.data}>{e.texto}</TimelineEvent>);
+        var listaEventos = eventos.map(e => <TimelineEvent titulo={e.titulo} data={e.data} hora={e.hora}>{e.texto}</TimelineEvent>);
 
         return <div>
             <h1 className="timeline-title">{this.props.titulo}</h1>
@@ -99,7 +99,7 @@ class TimelineEvent extends React.Component<ITimelineEventProps, {}> {
     render() {
         var evento = this.props.titulo;
 
-        return <li className="event" data-date="12:30 - 1:00pm">
+        return <li className="event" data-date={this.props.hora}>
             <div className="histories-infos">
                 <h1 className='histories-title' onClick={this.showInfo.bind(this)}>{this.props.titulo}<small className="history-date">{this.props.data}</small></h1>
                 <div className="histories-parameters" >
@@ -157,6 +157,7 @@ interface IUserProfileProps {
 interface ITimelineEventProps {
     titulo;
     data;
+    hora;
     texto?;
 }
 interface ITimelineProps {
